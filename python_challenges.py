@@ -2,6 +2,22 @@
 import random
 
 
+
+# interview question solution
+
+lis = [1, 15, 2, 9, 7, 14]
+newlist = []
+
+for item1 in lis:  # for each item in list 'lis'
+    for item2 in lis:  # and for every item in list 'lis' compare another item in list to find sum of the two
+        if item1 + item2 == 16:  # if the sum of the two numbers = 16, add to new list in tuple form to gather pairs
+                                # and then remove item from first list
+            newlist.append((item1, item2))
+            lis.remove(item1)
+
+print(newlist)
+
+
 def power_of_Two(n):
     return n > 0 and (n & (n - 1)) == 0
 
