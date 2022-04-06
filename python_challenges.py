@@ -1,6 +1,6 @@
 # finding if number is to the power of 2
 import random
-
+import math
 
 
 # interview question solution
@@ -469,3 +469,75 @@ def format_number(n):
 # print(format_number(1000000))
 
 #  END OF PYTHON PRINCIPLES QUESTIONS
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+# print(factorial(6))  # is 6 * 5 * 4 * 3 * 2 * 1
+
+# generator practice
+
+"""def repeat(n, message):
+    for _ in range(n):
+        yield message
+
+repeat_hello_five_times = repeat(5, 'hello')
+
+for message in repeat_hello_five_times:
+    print(message)
+
+repeat_hello_five_times = ("hello" for _ in range(5))
+repeat_hello_five_times
+
+for message in repeat_hello_five_times:
+    print(message)"""
+
+# zip and enumerate practice
+"""names = ["john", "bob", "alice"]
+ages = [10, 16, 20]
+
+for name, age in zip(names, ages):
+    print(name, age)
+
+for index, name in enumerate(names):
+    print(index, name)"""
+
+"""numbers = [1,2,3,4,5]
+numbers_times_two = list(map(lambda n : n * 2, numbers))
+
+print(numbers_times_two)"""
+
+# large file opening practice with low ram usage
+"""with open("example.txt") as input_file:
+    for line in input_file:
+        process_line(line)"""
+
+
+# PYTHON CODE CHALLENGES
+# https://www.codecademy.com/resources/blog/python-code-challenges-for-beginners/
+
+def radian_to_degree(n):
+    return n * (180/math.pi)
+
+# print(str(radian_to_degree((4 * math.pi)/9)) + " degrees")
+# print(str(radian_to_degree(1.4)) + " degrees")
+
+def degree_to_radian(n):
+    return n * (math.pi/180)
+
+# print(str(degree_to_radian(200)) + " radians")
+
+def fib(n):
+    if n == 1 or n == 2:
+        result = 1
+    elif n < 1:
+        return "Enter a positive integer!"
+    else:
+        result = fib(n-1) + fib(n-2)
+        print(result)
+    return result
+
+print(fib(4))
