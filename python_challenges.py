@@ -556,7 +556,7 @@ def find_int(nums, target):
     for s in nums:
         if s == target:
             return "Located at index: " + str(i)
-        i+=1
+        i+=1  # keeps track of index number
     return "Not in array"
 
 # print(find_int(nums, 34))
@@ -566,9 +566,9 @@ def find_int(nums, target):
 def reversed(n):
     string=str(n)
     if string[0] == '-':
-        return int('-'+string[:0:-1])
+        return int('-'+string[:0:-1])  # makes flips number and keeps negative operator
     else:
-        return int(string[::1])
+        return int(string[::1])  # flips number
 
 # print(reversed(-231))
 # print(reversed(345))
@@ -576,10 +576,32 @@ def reversed(n):
 # average word length
 
 def average_word(sent):
-    i = 0
-    for s in sent:
-        i += 1
-        print(s)
+    length = len(sent)/len(sent.split())  # the length equals the length of total sentence divided by total amnt of num
+    print(length)
 
-average_word("Hello there world")
+# average_word("Hi all, my name is Tom...I am originally from Australia")
+
+# add integers represented as integers
+
+def add_strings(num1, num2):
+    return str(eval(num1) + eval(num2))  # makes integers strings
+
+
+# print(add_strings("5", "3"))
+
+# find first non-repeating number
+
+def non_repeat(s):
+    frequency = {}  # keeps a dictionary of values
+    for i in s:
+        if i not in frequency:  # if character not in frequency, makes new dictionary value equal to 1
+            frequency[i] = 1
+        else:  # if it is in it, add another 1 to that value
+            frequency[i] += 1
+    for i in range(len(s)):  # for item in the length of the string
+        if frequency[s[i]] == 1:  # iterates through length of string keep track of index through i
+            return i  # if the index number is equal to 1, then return i, meaning it appeared once
+    return -1  # if doesn't exist, return -1
+
+print(non_repeat("barbados"))
 
