@@ -530,14 +530,45 @@ def degree_to_radian(n):
 
 # print(str(degree_to_radian(200)) + " radians")
 
+# Fibonacci number
 def fib(n):
-    if n == 1 or n == 2:
-        result = 1
+    a = 0
+    b = 1
+    if n == 1:
+        print(a)
     elif n < 1:
-        return "Enter a positive integer!"
+        print("Enter positive number")
     else:
-        result = fib(n-1) + fib(n-2)
-        print(result)
-    return result
+        print(a)
+        print(b)
+        for i in range(1,n):
+            c = a + b  # makes current number
+            a = b  # these next two lines are for saving the number for next iteration
+            b = c
+            print(c)
 
-print(fib(4))
+# fib(10)
+
+nums = [1, 2, 3 ,4, 34, 56, 78, 92]
+
+def find_int(nums, target):
+    i = 0
+    for s in nums:
+        if s == target:
+            return "Located at index: " + str(i)
+        i+=1
+    return "Not in array"
+
+# print(find_int(nums, 34))
+
+# reversed digit/integer
+
+def reversed(n):
+    string=str(n)
+    if string[0] == '-':
+        return int('-'+string[:0:-1])
+    else:
+        return int(string[::1])
+
+print(reversed(-231))
+print(reversed(345))
