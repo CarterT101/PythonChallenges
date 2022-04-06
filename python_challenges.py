@@ -570,5 +570,16 @@ def reversed(n):
     else:
         return int(string[::1])
 
-print(reversed(-231))
-print(reversed(345))
+# print(reversed(-231))
+# print(reversed(345))
+
+# average word length
+
+def average_word(sent):
+    i = 0
+    for s in sent:
+        i += 1
+        print(s)
+
+average_word("Hello there world")
+
