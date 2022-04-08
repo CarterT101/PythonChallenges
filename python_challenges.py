@@ -203,7 +203,7 @@ def capital_indexes(st):
 
 # print(capital_indexes("HeLlO"))
 
-
+# finding middle number if there is one
 def mid(st):
     i = 0  # created iterable item to count string amount
     for s in st:
@@ -235,13 +235,12 @@ def online_count(dict):
 #  print(online_count(statuses))
 
 def random_number():
-    i = random.randint(1, 100)  # produces random number 1-100
-    return i
+    return  random.randint(1, 100)  # produces random number 1-100
 
 
 #  print(random_number())
 
-def only_ints(i, s):
+def only_ints(i, s):  # isinstance parameters are a variable/data type and the data type you want to check if it is
     if isinstance(i, int) and isinstance(s, int) and not isinstance(i, bool) and not isinstance(s, bool):
         # checks if the two arguments are integer and NOT bool since bool True and False are subs of int data type
         return True
@@ -252,18 +251,16 @@ def only_ints(i, s):
 # print(only_ints(1, 1))
 
 def double_letters(st):
-    i = 0
     num = 0
     for s in st:  # for each item in string, go through loop
-        if i == 0:  # first iteration will always be 0, this is just to gather the first letter of the word
-            i += 1
+        if s == st[0]:  # first iteration will always be 0, this is just to gather the first letter of the word
             letter = s
+            continue
         else:
             if s == letter:  # checks if there are two in a row, if not, it goes onto next letter
                 num += 1  # if there are two letters in row, it adds a number to this variable
             else:
                 letter = s
-                i += 1
     if num > 0:
         return True  # after running through whole string, if num variable is greater than 0, it had two letters in row
     else:
@@ -366,28 +363,28 @@ board = [
 
 def get_row_col(st):
     st = st.lower()
-    i = 0  # column / letter
-    r = 0  # row / number
+    x = 0
+    y = 0
     if len(st) == 2:
         if st[0] == 'a':  # using the created variables as placeholders for the row and column numbers
-            r = 0
+            y = 0
         if st[0] == 'b':
-            r = 1
+            y = 1
         if st[0] == 'c':
-            r = 2
+            y = 2
         if st[1] == '1':
-            i = 0
+            x = 0
         if st[1] == '2':
-            i = 1
+            x = 1
         if st[1] == '3':
-            i = 2
-        x = (i, r)  # make a tuple
+            x = 2
+        x = (x, y)  # make a tuple
         return x
     else:
         return "Please enter valid spot"
 
-
 # print(get_row_col("A3"))
+
 
 def palindrome(st):
     if st == st[::-1]:  # reverses the string to check if the string is the same as the string backwards
@@ -603,5 +600,5 @@ def non_repeat(s):
             return i  # if the index number is equal to 1, then return i, meaning it appeared once
     return -1  # if doesn't exist, return -1
 
-print(non_repeat("barbados"))
+# print(non_repeat("barbados"))
 
