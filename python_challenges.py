@@ -14,7 +14,6 @@ for item1 in lis:  # for each item in list 'lis'
                                 # and then remove item from first list
             newlist.append((item1, item2))
             lis.remove(item1)
-
 print(newlist)
 
 
@@ -104,12 +103,10 @@ def vowels(st):
 
 
 def creditcard(cc):
-    num = str(cc)
-    num1 = '*' * (len(num) - 4) + num[-4:]
-    print(num1)
+    return "#"*(len(cc)-4) + cc[-4:]  # replaces all numbers except last 4 with # by concatenating strings
 
 
-# creditcard(4444444444444444)
+# print(creditcard(4444444444444444))
 
 
 def x_and_o(xo):
@@ -404,6 +401,7 @@ def up_down(i):
 
 def consecutive_zeros(st):
     x = st.split('1')  # splits the string by 1s to find the groups of 0
+    print(x)
     return len(max(x))  # prints the length of the largest group of 0s
 
 # print(consecutive_zeros("1001101000110"))
