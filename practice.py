@@ -630,3 +630,51 @@ if os.path.exists("mytestfile.txt"):
 else:
     print("File does not exist")
 
+# lambda practice
+
+def square(a):
+    return a * a
+
+# print(square(5))
+
+f = lambda a : a*a
+c = lambda a, b=4 : a*b
+print(f(2))
+print(c(2))
+print(c(2, 5))
+
+list1 = [1,2,3,4,5,6,7,8,9,10]
+
+                # map(function, iterable)
+newList = list(map(lambda x : x+5, list1))
+print(newList)
+
+# filter practice
+
+def fun(variable):
+    letters = ['a', 'e', 'i', 'o', 'u']
+    if variable in letters:
+        return True
+    else:
+        return False
+
+
+# sequence
+sequence = ['g', 'e', 'e', 'j', 'k', 's', 'p', 'r']
+
+# using filter function
+filtered = filter(fun, sequence)
+
+print('The filtered letters are:')
+for s in filtered:
+    print(s)
+
+seq = [0, 1, 2, 3, 5, 8, 13]
+
+# result contains odd numbers of the list
+result = filter(lambda x: x % 2 != 0, seq)
+print(list(result))
+
+# result contains even numbers of the list
+result = filter(lambda x: x % 2 == 0, seq)
+print(list(result))
