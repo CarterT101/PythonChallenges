@@ -347,23 +347,22 @@ def bigger_price(num, dict):
 
 
 def between_markers(str, first, second):
-    if first and second not in str:
+    if first not in str and second not in str:
         return str
     if first not in str:
-        print("if not")
         m = re.search('.*.{}'.format(second), str)
         return str[:m.end()-(len(second)-1)]
     elif second not in str:
-        print("elif 1")
         m = re.search('{}.*.'.format(first), str)
         return str[m.start()+len(first)-1:]
     elif first and second in str:
-        print("elif 2")
+        if str.index(first) > str.index(second):
+            return ""
         m = re.search(('{}.*.{}'.format(first, second)), str)
         return str[m.start() + (len(first)):m.end()-(len(second))]
 
 
-print(between_markers("No [b]hi","[b]","[/b]"))
+print(between_markers("No[/b] hi","[b]","[/b]"))
 
 
 
