@@ -1,6 +1,8 @@
 import datetime
 
 # python file full of challenges from py.checkio.org
+import re
+
 
 def first_word(str):
     result = str.split()
@@ -156,7 +158,7 @@ def nearest_value(values: set, i: int) -> int:
                                                     # which is the number that created smallest number
 # print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
 
-def between_markers(str, m, n):
+"""def between_markers(str, m, n):
     string_found = ''  # makes empty string
     i = 1  # keeps track of string index, equal to one so it skips the first marker
     for s in str:
@@ -167,18 +169,17 @@ def between_markers(str, m, n):
     while str[i] != n:  # while str[i] does not equal second marker
         string_found = string_found+str[i]  # add index location to new string
         i += 1
-
-    return string_found
+    return string_found"""
 
 # print(between_markers('What is >apple<', '>', '<'))
 
-def correct_sentance(str):
+def correct_sentence(str):
     result = str[0].upper() + str[1:]  # makes sure first index is upper
     if result[-1] != '.':  # if the last index is not a period, add it and then return result
         result = result+'.'
     return result
 
-# print(correct_sentance("greetings, friends"))
+# print(correct_sentence("greetings, friends"))
 
 def is_even(n):
     if n % 2 == 0:
@@ -291,10 +292,79 @@ def count_digits(str):
 
 
 def backward_string_by_word(str):
-    str=str.split(" ")
-    newstring=""
-    for s in str:
-        newstring = newstring + s[::-1]
-    return newstring
+    result = ' '.join([x[::-1] for x in str.split(' ')])    # for every item (that is put in reverse)
+                                                            # in string split by spaces,
+    return result
 
-print(backward_string_by_word('hello    world'))
+# print(backward_string_by_word('hello    world'))
+
+def backward(str):
+    if str == '':
+        return ''
+    newstring = str[::-1].split(' ')  # this fails because if there is only one space, then it will get rid of it
+    result = ''
+    print(newstring)
+    i = (len(newstring)-1)
+    while i != -1:
+        if newstring[i] == '':
+            result = result + " "
+        result = result + newstring[i]
+        i -= 1
+    return result
+
+# print(backward('hello world'))
+
+
+def left_join(str):
+    return (",".join(str)).replace("right", "left") # puts a comma between every iterable item in str iterable, and
+                                                    # replaces right with left
+
+# print(left_join(("bright aright", "ok")))
+
+
+def bigger_price(num, dict):
+    i = 0  # makes iterable
+    counterlist = [] # makes list to sort through
+    newlist = []  # makes list that will be returned
+    index = 0
+    for x in dict:  # for each item in list, put iterable 'i' in to keep track of index, and
+        counterlist.append((i, list(dict[i].values())[1]))  # inputs tuple of index and value of price into new list
+        i += 1  # to keep track of index
+    counterlist.sort(key = lambda counterlist: counterlist[1], reverse=True)  # sorts the list based off of value of
+                                # second value in tuple, and puts into reverse from greatest to smallest
+    i = 0                       # reset iterable to keep track of index
+    for x in range(num):        # for each value in range of first inputted number, add it to new list
+        newlist.append(dict[counterlist[i][0]])
+        i += 1
+    return newlist
+
+"""print(bigger_price(2, [
+    {"name": "bread", "price": 100},
+    {"name": "wine", "price": 138},
+    {"name": "meat", "price": 15},
+    {"name": "water", "price": 1}
+]))"""
+
+
+def between_markers(str, first, second):
+    if first and second not in str:
+        return str
+    if first not in str:
+        print("if not")
+        m = re.search('.*.{}'.format(second), str)
+        return str[:m.end()-(len(second)-1)]
+    elif second not in str:
+        print("elif 1")
+        m = re.search('{}.*.'.format(first), str)
+        return str[m.start()+len(first)-1:]
+    elif first and second in str:
+        print("elif 2")
+        m = re.search(('{}.*.{}'.format(first, second)), str)
+        return str[m.start() + (len(first)):m.end()-(len(second))]
+
+
+print(between_markers("No [b]hi","[b]","[/b]"))
+
+
+
+
