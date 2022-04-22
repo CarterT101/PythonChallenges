@@ -347,22 +347,23 @@ def bigger_price(num, dict):
 
 
 def between_markers(str, first, second):
-    if first not in str and second not in str:
+    if first not in str and second not in str:  # checks if first and second are not in string, if so, return string
         return str
-    if first not in str:
-        m = re.search('.*.{}'.format(second), str)
+    if first not in str:  # if first marker is not in string, print everything before second marker
+        m = re.search('.*.{}'.format(second), str)  # makes an object to use functions on
         return str[:m.end()-(len(second)-1)]
-    elif second not in str:
-        m = re.search('{}.*.'.format(first), str)
-        return str[m.start()+len(first)-1:]
-    elif first and second in str:
-        if str.index(first) > str.index(second):
+    elif second not in str:  # if second marker isnt in string, print everything after first marker
+        m = re.search('{}.*.'.format(first), str) # .*. will print everything passed certain mark, a fill in character
+        return str[m.start()+len(first)-1:]  # m is the object, .start finds the start of the index it found the
+                                             # marker at, and .end finds the ending index of the other market
+    elif first and second in str:  # if both markers are in string, go as normal
+        if str.index(first) > str.index(second):  # makes sure second marker isn't before first marker, if so return ""
             return ""
-        m = re.search(('{}.*.{}'.format(first, second)), str)
-        return str[m.start() + (len(first)):m.end()-(len(second))]
+        m = re.search(('{}.*.{}'.format(first, second)), str)  # finds the text between the two markers
+        return str[m.start() + (len(first)):m.end()-(len(second))]  # prints the index values between markers
 
 
-print(between_markers("No[/b] hi","[b]","[/b]"))
+# print(between_markers("No[/b] hi","[b]","[/b]"))
 
 
 
