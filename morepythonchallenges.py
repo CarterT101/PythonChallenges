@@ -1,7 +1,8 @@
 import datetime
+import re
 
 # python file full of challenges from py.checkio.org
-import re
+
 
 
 def first_word(str):
@@ -365,6 +366,46 @@ def between_markers(str, first, second):
 
 # print(between_markers("No[/b] hi","[b]","[/b]"))
 
+def between_markers1(text: str, begin: str, end: str) -> str:
+    start = text.find(begin) + len(begin) if begin in text else None
+    stop = text.find(end) if end in text else None
+    return text[start:stop]
+
+def return_nonunique(lis):
+    newlist = []  # creating empty list
+    for m in lis:
+        if lis.count(m) > 1:  # for each item in list, count the amount the item is in the list
+            newlist.append(m)  # if greater than 1 time in list, append it to new list and return
+    return newlist
+
+# print(return_nonunique([1, 2, 3, 1, 3]))
+
+def popular_words(text, words):
+    stringlist = text.lower().split()  # makes a new list to make all words in string lowercase to check easier
+    result = {}  # makes dictionary
+    for n in words:  # for each item in given array
+        result[n] = stringlist.count(n)  # adds the amount of items in list to dictionary based on given words list
+    return result
 
 
+# print(popular_words("When I was One I had just begun When I was Two I was nearly new", ['i', 'was', 'three', 'near']))
 
+
+# find the second occurance of given symbol in given text
+
+def second_index(text, symbol):
+    if text.count(symbol) >= 2:  # if the symbol you are searching for appears twice, continue
+        index = list(text).index(symbol, list(text).index(symbol) + 1)  # finds index of first occurance and then
+                                                                        # gives arguments for .index() function
+                                                     # to search for it after first occurance, therefore finds second
+    else:
+        return None
+    return index
+
+# print(second_index("three occurrences","r"))
+
+
+def frequency_sort(lis):
+    return sorted(lis, key=lis.count, reverse=True)
+
+print(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4]))

@@ -13,7 +13,7 @@ for item1 in lis:  # for each item in list 'lis'
         if item1 + item2 == 16:  # if the sum of the two numbers = 16, add to new list in tuple form to gather pairs
                                 # and then remove item from first list
             newlist.append((item1, item2))
-            lis.remove(item1)
+            lis.remove(item2)
 print(newlist)
 
 
