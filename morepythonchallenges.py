@@ -405,7 +405,10 @@ def second_index(text, symbol):
 # print(second_index("three occurrences","r"))
 
 
-def frequency_sort(lis):
-    return sorted(lis, key=lis.count, reverse=True)
+def frequency_sort(items):
+    return sorted(items, key=lambda x: (-items.count(x), items.index(x)))
+# first key is the number of appearances ('-' inverts the list)
+# second key applies when two elements are equally often in list, items.index sorts by first appearance in original list
 
-print(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4]))
+# print(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4]))
+
