@@ -46,7 +46,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\hoove\Documents\GitHub\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\hoove\Documents\School\Python Practice\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -81,6 +81,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.morepythonchallenges" />
+      <item itemvalue="Python.python_challenges" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.morepythonchallenges" />
