@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import math
 import re
 
@@ -517,7 +517,9 @@ def replace_last(line):
 
 def index_power(array, n):
     return array[n] ** n if len(array) > n else -1  # return the array of index 'n' and do to the power of n
-                                                    # only if the length of the array is greater than n, else return -1
+    # only if the length of the array is greater than n, else return -1
+
+
 # print(index_power([1, 2, 3, 4], 2))
 
 def is_majority(items):
@@ -526,5 +528,47 @@ def is_majority(items):
     else:
         return False
 
+
 # print(is_majority([True, True, False, True, False]))
 
+def sum_light(els) -> int:
+    i = 0  # first index
+    l = 1  # second index
+    result = 0  # result to keep track of for seconds passed
+    while l < len(els):  # makes sure it stops before getting past length of list of datetime objects
+        result += (els[l] - els[i]).total_seconds()  # subtracting future date from passed date and getting the seconds
+        i += 2  # skipping two index to get the next two comparisons
+        l += 2
+    return int(result)  # returning integer version of total seconds passed
+
+
+"""print(sum_light([
+        datetime(2015, 1, 12, 10, 0, 0),
+        datetime(2015, 1, 12, 10, 0, 10),
+        datetime(2015, 1, 12, 11, 0, 0),
+        datetime(2015, 1, 13, 11, 0, 0),
+    ]))"""
+
+
+def sum_light_2(*args):
+    i = 0
+    l = 1
+    result = 0
+    if args[1]:
+        result = 0
+        while l < len(args[0]):
+            result += (args[0][l] - args[0][i]).total_seconds() - (args[1]).second
+            i += 2
+            l += 2
+        return int(result)
+    while l < len(args[0]):
+        result += (args[0][l] - args[0][i]).total_seconds()
+        i += 2
+        l += 2
+    return args[0][0]
+
+print(sum_light_2([
+    datetime(2015, 1, 12, 10, 0, 0),
+    datetime(2015, 1, 12, 10, 0, 10),
+],
+    datetime(2015, 1, 12, 10, 0, 5)))
