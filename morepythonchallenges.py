@@ -1,3 +1,4 @@
+import random
 from datetime import datetime
 import math
 import re
@@ -7,8 +8,8 @@ import re
 
 
 def first_word(str):
-    result = str.split()
-    if ',' in result[0]:
+    result = str.split()  # splits the words into a list
+    if ',' in result[0]:  # if a comma is in the first word, replace it with nothing
         result[0] = result[0].replace(',', '')
     return result[0]
 
@@ -16,7 +17,7 @@ def first_word(str):
 # print(first_word('Hello, world'))
 
 def is_acceptable_password(password):
-    if len(password) >= 6:
+    if len(password) >= 6:  # makes sure the password is greater than 6
         return True
     else:
         return False
@@ -27,23 +28,24 @@ def is_acceptable_password(password):
 def num_length(n):
     return len(str(n))
 
+# print(num_length(10000))
 
 def most_frequent(lis):
     counter = 0
-    num = lis[0]  # sets variable to first item in list
+    result = lis[0]  # sets variable to first item in list
     for i in lis:
         freq = lis.count(i)  # for each item it will check the amount of times the iterable appears in list
         if freq > counter:  # if that number is bigger than the counter, it sets the counter number to amount
             # of iterable in list
             counter = freq
-            num = i  # sets returnable variable to the iteration value it is on
-    return num
+            result = i  # sets returnable variable to the iteration value it is on
+    return result
 
 
 lis = [
     'a', 'b', 'c',
     'a', 'b',
-    'a'
+    'a', 'b', 'b'
 ]
 
 
@@ -54,59 +56,58 @@ lis = [
 # print(max(set(lis), key=lis.count))
 
 def end_zeros(n):
-    n = str(n)  # converts number to string
     if n == 0 or n == '0':  # if it is just 0 it has 1 zero, so return 1
         return 1
     else:  # if it is not 0, continue with statement
         i = 1  # sets iterable to 1
-        if n[len(n) - 1] == '0':
-            while n[len(n) - i] == '0':
+        if n[len(n) - 1] == '0':  # if the last item in list == 0, continue
+            while n[len(n) - i] == '0':  # while the index is 0, add one to i to keep track of how many zeros there are
                 i += 1
-        return i - 1
+        return i - 1  # return i - 1 as the iterable 'i' started off with 1
 
 
-# print(end_zeros('100010'))
+# print(end_zeros('1000100'))
 
 
 def easy_unpack(item):
-    return (item[0], item[2], item[-2])
+    return item[0], item[2], item[-2]
 
 
 # print(easy_unpack([1,2,3,4,5,6,7,9]))
 
 def remove_all_before(lis, n):
-    count = 0
-    newlist = []
-    if n in lis:
-        for i in lis:
-            if i == n:
+    count = 0  # keeps track of index
+    newlist = []  # new list to append
+    if n in lis:  # if n is in the list, continue
+        for i in lis:  # for item in list
+            if i == n:  # if i == n, add to new list from the count number onwards
                 for l in lis[count:]:
                     newlist.append(l)
-                return newlist
-            count += 1
+                return newlist  # return list
+            count += 1  # keeps track of index
     else:
-        return lis
+        return lis  # returns list if 'n' is not in given list
 
 
 # print(remove_all_before([1, 2, 3, 4, 5], 3))
 
 def is_all_upper(str):
     for s in str:
-        if s.isdigit():
+        if s.isdigit():  # if it is a digit, skip iteration
             continue
-        if s.islower():
+        if s.islower():  # if an item is lowercase, return False
             return False
-    return True
+    return True  # if it makes it through iteration, return True
 
 
 # print(is_all_upper('HELLO 5 5 5 '))
 
 def replace_first(lis):
-    if len(lis) == 0:
+    if len(lis) == 0:  # if the list is empty, return list
         return lis
-    lis.append(lis[0])
-    lis.pop(0)
-    return lis
+    lis.append(lis[0])  # adds first index to end of list
+    lis.pop(0)  # gets rid of first index
+    return lis  # return list
 
 
 # print(replace_first([1, 2, 3, 4]))
@@ -120,40 +121,39 @@ def max_digit(n):
 
 def split_pairs(str):  # brute force way
     newlist = []
-    i = 0
-    count = 2
-    if len(str) == 1:
+    i = 0  # iterator
+    count = 2  # set count = 2
+    if len(str) == 1:  # if length is 1, add _ to the end to make pair
         str += '_'
         return [str]
-    elif len(str) == 2:
+    elif len(str) == 2:  # if length of string == 2, return string as it is already a pair
         return [str]
-    elif len(str) % 2 != 0:
+    elif len(str) % 2 != 0:  # if the remaining number of %2 does not equal 0, add a _ to it to make it even number
         str += '_'
-    while count < len(str) and i < len(str):
-        for s in str:
-            print(i, count)
+    while count < len(str) and i < len(str):  # while count is less than length of string, and i is less than string
+        for s in str:  # for each item in string, append string index 'i' iterable through 'count' iterable
             newlist.append(str[i:count])
-            i += 2
-            count += 2
+            i += 2  # adds two to go to next pair through index
+            count += 2  # if a blank space is in newlist, remove it
             if '' in newlist:
                 newlist.remove('')
-    return newlist
+    return newlist  # return answer
 
 
-# print(split_pairs('aa'))
+# print(split_pairs('aaaaaa'))
 
 # another solution
 
 def split_pairs2(a):  # fast easy way
     return [ch1 + ch2 for ch1, ch2 in zip(a[::2], a[1::2] + '_')]  # ::2 means two increments
 
-
 # print(split_pairs2('aa'))
 
 def beginning_zeros(str):
-    i = 0
+    i = 0  # set number equal to 0 to count 0s in string
     for s in str:
-        if s == '0':
+        if s == '0':    # if s is equal to 0, add one and if it stops being zero,
+                        # return i as there are no more leading 0s
             i += 1
         else:
             return i
@@ -170,7 +170,7 @@ def nearest_value(values: set, i: int) -> int:
     # which is the number that created smallest number
 
 
-# print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
+print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
 
 """def between_markers(str, m, n):
     string_found = ''  # makes empty string
@@ -567,8 +567,33 @@ def sum_light_2(*args):
         l += 2
     return args[0][0]
 
-print(sum_light_2([
+"""print(sum_light_2([
     datetime(2015, 1, 12, 10, 0, 0),
     datetime(2015, 1, 12, 10, 0, 10),
 ],
-    datetime(2015, 1, 12, 10, 0, 5)))
+    datetime(2015, 1, 12, 10, 0, 5)))"""
+
+def random_floor(n, end, start=1):  # n being the number it can't be
+    return [*range(start, n), *range(n+1, end)]
+r = random_floor(3, 6)
+
+person_list = dict()
+
+
+# this loop makes a dictionary of people 1-10 and assigns them a random floor they are on, and then it makes another
+# random number with the restriction that the floor they want to go to CAN NOT BE the same floor they are on
+
+for i in range(1, 11):
+    person_list['person{}'.format(i)] = [random.choice(r), 0]
+    # add values to iterated person with a random choice of floor and a temp number '0'
+    gotofloor = random_floor(person_list['person{}'.format(i)][0], 6)
+    # makes a new random list with restriction
+    person_list['person{}'.format(i)][1] = random.choice(gotofloor)
+    # replaces temp number with another random number that is NOT the floor they are currently on
+print(person_list)
+
+print(person_list['person1'][0])  # prints the floor they are on
+print(person_list['person1'][1])  # prints the floor they want to go to
+
+
+
