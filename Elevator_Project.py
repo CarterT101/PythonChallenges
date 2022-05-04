@@ -44,3 +44,4 @@ while line:
 print("\nCurrent list of people:\n")
 for i, k in person_list.items():
     print("Person: " + i + " \tCurrent Floor: " + str(k[0]) + "\tGo to Floor: " + str(k[1]))
+
