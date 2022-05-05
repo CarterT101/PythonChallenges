@@ -1,47 +1,70 @@
 import random
+import Elevator_Functions as Ef
 
-
-def random_floor(n, end, start=1):  # n being the number it can't be
-    return [*range(start, n), *range(n+1, end)]  # makes a list within a range and a restriction
-
-person_list = dict()
-
-
-"""
-this loop makes a dictionary of people 1-10 and assigns them a random floor they are on, and then it makes another
-random number with the restriction that the floor they want to go to CAN NOT BE the same floor they are on
-"""
-
-# THIS IS AN ELEVATOR THAT STARTS ON FLOOR 1 AND HAS 5 FLOORS, so randrange(1,6) makes it so that is true
-
-for i in range(1, 11):
-    person_list['person{}'.format(i)] = [random.randrange(1, 6), 0]
-    # add values to iterated person with a random choice of floor and a temp number '0'
-    gotofloor = random_floor(person_list['person{}'.format(i)][0], 6)
-    # makes a new random list with restriction
-    person_list['person{}'.format(i)][1] = random.choice(gotofloor)
-    # replaces temp number with another random number that is NOT the floor they are currently on
-
-# print(person_list['person1'][0])  # prints the floor they are on
-# print(person_list['person1'][1])  # prints the floor they want to go to
+max_capacity = 5        # maximum capacity of elevator
+current_floor = 1       # starting current floor should be level 1
+total_floors = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0
+}        # total floors should be 5 as they will be 5 floors, and the value being the amount of people on it
 
 
 """
-this section of code will allow the user to input their own data and they can stop at any point
-if they stop before making 10 people with data, it will automatically create the others to make sure
-at least 10 people are created. if the user decides to make more than 10 people, it will allow that
+This section will allow users to input how many people will be in the building, if they do not want to input,
+it will automatically make 10
+"""
+people_amount = input("How many people should be in this building?\nIf not just hit 'enter' key.\n")
+if people_amount:
+    Ef.create_people_list(int(people_amount))
+else:
+    Ef.create_people_list()
+
+"""
+This section will allow users to customize the floor the current person is on and wants to go to, if at any point
+the user does not want to input data, they can hit enter key and values will already be created for them
 """
 
-line = input("Input the floor a person is on and the floor they want to go to separated by ',': ")
+
+line = input("Input the floor the first person is on and the floor they want to go to separated by ',':"
+             "\nIf not just hit 'enter' key.\n")
 i = 1
 while line:
     a, b = line.split(',')
-    person_list['person{}'.format(i)] = [int(a), int(b)]
-    print(person_list)
+    Ef.person_list[i] = [int(a), int(b)]
+    print("Floor they are on: " + str(Ef.person_list[i][0]) + "\tFloor they want to go to: " +
+          str(Ef.person_list[i][1]))
     i += 1
-    line = input("Input the floor a person is on and the floor they want to go to separated by ',': ")
+    line = input("Input the floor the next person is on and the floor they want to go to separated by ',': ")
 
 print("\nCurrent list of people:\n")
-for i, k in person_list.items():
-    print("Person: " + i + " \tCurrent Floor: " + str(k[0]) + "\tGo to Floor: " + str(k[1]))
+for i, k in Ef.person_list.items():
+    pass
+    print("Person: " + str(i) + " \tCurrent Floor: " + str(k[0]) + "\tGo to Floor: " + str(k[1]))
+
+print("")
+
+temp_person_list = {
+    1: [1, 5],
+    2: [1, 5],
+    3: [1, 3],
+    4: [1, 3],
+    5: [5, 2]
+}
+
+floor_list_amount = []
+for s in temp_person_list.items():
+    floor_list_amount.append(s[1][0])
+
+for k in total_floors.keys():
+    total_floors[k] = floor_list_amount.count(k)
+
+for floornumber, amountofpeople in total_floors.items():
+    print("Floor: " + str(floornumber) + " has " + str(amountofpeople) + " people")
+
+print("")
+
+Ef.going_up(current_floor, temp_person_list, total_floors)
 

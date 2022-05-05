@@ -596,4 +596,3 @@ print(person_list['person1'][0])  # prints the floor they are on
 print(person_list['person1'][1])  # prints the floor they want to go to
 
 
-
