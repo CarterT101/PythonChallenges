@@ -602,7 +602,7 @@ print("Username is: " + username)
 # w = write
 # x = create
 
-f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
+"""f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
 print(f.read(5))  # number represents amount of characters we want to return, leave blank for whole file
 f.close()
 
@@ -628,7 +628,7 @@ f.close()
 if os.path.exists("mytestfile.txt"):
     os.remove("mytestfile.txt")
 else:
-    print("File does not exist")
+    print("File does not exist")"""
 
 # lambda practice
 
@@ -678,3 +678,28 @@ print(list(result))
 # result contains even numbers of the list
 result = filter(lambda x: x % 2 == 0, seq)
 print(list(result))
+
+
+# class __init__ .self practice
+class Tweet:
+    pass
+
+a = Tweet()
+a.message = '140 characters'
+b = Tweet()
+b.message = 'Something different'
+
+print(a.message)
+print(b.message)
+
+class Tweet:
+    def __init__(self, message):
+        self.message = message
+    def print_tweet(self):
+        print(self.message)
+
+a = Tweet("Hellloooo")
+
+a.print_tweet()
+
+Tweet.print_tweet(a)
