@@ -14,8 +14,7 @@ for item1 in lis:  # for each item in list 'lis'
                                 # and then remove item from first list
             newlist.append((item1, item2))
             lis.remove(item2)
-print(newlist)
-
+# print(newlist)
 
 def power_of_Two(n):
     return n > 0 and (n & (n - 1)) == 0

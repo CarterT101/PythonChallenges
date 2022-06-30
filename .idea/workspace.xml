@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="355dc6f9-cbbf-45c6-893b-ca76f7c77da5" name="Changes" comment="" />
+    <list default="true" id="355dc6f9-cbbf-45c6-893b-ca76f7c77da5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_challenges.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_challenges.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +45,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Python.Elevator_Project">
+  <component name="RunManager" selected="Python.practice">
     <configuration name="Elevator_Project" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonChallenges" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -50,9 +53,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\hoove\Documents\GitHub\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Elevator_Project.py" />
@@ -113,9 +116,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\hoove\Documents\GitHub\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice.py" />
@@ -157,11 +160,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.practice" />
+        <item itemvalue="Python.python_challenges" />
         <item itemvalue="Python.Elevator_Project" />
         <item itemvalue="Python.morepythonchallenges" />
-        <item itemvalue="Python.practice" />
         <item itemvalue="Python.data_structures" />
-        <item itemvalue="Python.python_challenges" />
       </list>
     </recent_temporary>
   </component>
