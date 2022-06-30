@@ -602,33 +602,33 @@ print("Username is: " + username)
 # w = write
 # x = create
 
-f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
-print(f.read(5))  # number represents amount of characters we want to return, leave blank for whole file
-f.close()
-
-f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "w")
-f.write("Now the file has this line")
-f.close()
-
-f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
-print(f.read())
-f.close()
-
-f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "a")
-f.write("\nNow the file has another line")
-f.close()
-
-f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
-print(f.read())
-f.close()
-
-f = open("mytestfile.txt", "x")
-f.close()
-
-if os.path.exists("mytestfile.txt"):
-    os.remove("mytestfile.txt")
-else:
-    print("File does not exist")
+# f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
+# print(f.read(5))  # number represents amount of characters we want to return, leave blank for whole file
+# f.close()
+#
+# f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "w")
+# f.write("Now the file has this line")
+# f.close()
+#
+# f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
+# print(f.read())
+# f.close()
+#
+# f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "a")
+# f.write("\nNow the file has another line")
+# f.close()
+#
+# f = open("C:\\Users\hoove\Documents\School\Python Practice\demofile.txt", "r")
+# print(f.read())
+# f.close()
+#
+# f = open("mytestfile.txt", "x")
+# f.close()
+#
+# if os.path.exists("mytestfile.txt"):
+#     os.remove("mytestfile.txt")
+# else:
+#     print("File does not exist")
 
 # lambda practice
 
